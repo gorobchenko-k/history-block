@@ -72,4 +72,11 @@
       margin: 56px 0 57px 0;
     }
   }
+
+  &__circle-nav {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+  }
 }

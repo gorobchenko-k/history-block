@@ -1,12 +1,14 @@
 import { createElement } from 'utils/createElement';
 import { historyInfo } from 'data/historyData';
 import { Years } from 'components/years/years';
+import { CircleNav } from 'components/circleNav/circleNav';
 
 export class HistoryBlock {
   private historyBlock = createElement('div', ['history-block']);
   private subTitle = createElement('h3', ['history-block__sub-title']);
   private currentItem = 0;
   private years = new Years();
+  private circleNav = new CircleNav(historyInfo);
 
   constructor() {
     this.createBlock();
@@ -16,7 +18,7 @@ export class HistoryBlock {
   private createBlock(): void {
     const blockContainer = createElement('div', ['history-block__container']);
     const blockTitle = createElement('h1', ['history-block__title'], 'Исторические даты');
-    blockContainer.append(blockTitle, this.years.years, this.subTitle);
+    blockContainer.append(blockTitle, this.years.years, this.circleNav.circleNav, this.subTitle);
     this.historyBlock.append(blockContainer);
   }
 
@@ -25,6 +27,7 @@ export class HistoryBlock {
     if (currentInfo) {
       this.subTitle.textContent = currentInfo.title ?? '';
       this.years.setContent(currentInfo.startYear, currentInfo.endYear);
+      this.circleNav.setCurrentItem(this.currentItem);
     }
   }
 
