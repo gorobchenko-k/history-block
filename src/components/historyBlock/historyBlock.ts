@@ -17,6 +17,7 @@ export class HistoryBlock {
   constructor() {
     this.createBlock();
     this.setContent();
+    this.addBlockHandler();
   }
 
   private createBlock(): void {
@@ -42,6 +43,32 @@ export class HistoryBlock {
       this.pagination.setContent(this.currentItem);
       this.slider.setContent(currentInfo.events);
     }
+  }
+
+  private addBlockHandler(): void {
+    this.circleNav.circleNav.addEventListener('click', (e) => {
+      const target = e.target;
+      if (target instanceof HTMLElement && target.classList.contains('circle__item-line')) {
+        this.setCurrentItem(+(target.getAttribute('item-id') ?? ''));
+      }
+    });
+    this.pagination.pagination.addEventListener('click', (e) => {
+      const target = e.target;
+      if (target instanceof HTMLElement) {
+        if (target.classList.contains('pagination__bullet')) {
+          this.setCurrentItem(+(target.getAttribute('item-id') ?? ''));
+        } else if (target.classList.contains('prev-button') && this.currentItem - 1 >= 0) {
+          this.setCurrentItem(this.currentItem - 1);
+        } else if (target.classList.contains('next-button') && this.currentItem + 1 < historyInfo.length) {
+          this.setCurrentItem(this.currentItem + 1);
+        }
+      }
+    });
+  }
+
+  private setCurrentItem(currentItemIndex: number): void {
+    this.currentItem = currentItemIndex;
+    this.setContent();
   }
 
   public render(scope: HTMLElement): void {
