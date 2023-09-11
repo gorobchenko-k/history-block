@@ -3,6 +3,7 @@ import { historyInfo } from 'data/historyData';
 import { Years } from 'components/years/years';
 import { CircleNav } from 'components/circleNav/circleNav';
 import { Pagination } from 'components/pagination/pagination';
+import { Slider } from 'components/slider/slider';
 
 export class HistoryBlock {
   private historyBlock = createElement('div', ['history-block']);
@@ -11,6 +12,7 @@ export class HistoryBlock {
   private years = new Years();
   private circleNav = new CircleNav(historyInfo);
   private pagination = new Pagination(historyInfo.length);
+  private slider = new Slider();
 
   constructor() {
     this.createBlock();
@@ -25,7 +27,8 @@ export class HistoryBlock {
       this.years.years,
       this.circleNav.circleNav,
       this.subTitle,
-      this.pagination.pagination
+      this.pagination.pagination,
+      this.slider.slider
     );
     this.historyBlock.append(blockContainer);
   }
@@ -37,10 +40,12 @@ export class HistoryBlock {
       this.years.setContent(currentInfo.startYear, currentInfo.endYear);
       this.circleNav.setCurrentItem(this.currentItem);
       this.pagination.setContent(this.currentItem);
+      this.slider.setContent(currentInfo.events);
     }
   }
 
   public render(scope: HTMLElement): void {
     scope.append(this.historyBlock);
+    this.slider.createSlider();
   }
 }

@@ -88,4 +88,15 @@
       margin-left: 0;
     }
   }
+
+  &__slider.swiper {
+    margin: 75px 20px 0 20px;
+    min-height: 114px;
+
+    @media (max-width: 768px) {
+      margin: 0 0 78px 0;
+      padding-top: 20px;
+      border-top: 1px solid $line-color;
+    }
+  }
 }
