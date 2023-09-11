@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "start": "webpack server --open",
+    "build": "webpack --node-env=production"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gorobchenko-k/history-block.git"
@@ -13,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/gorobchenko-k/history-block/issues"
   },
-  "homepage": "https://github.com/gorobchenko-k/history-block#readme"
+  "homepage": "https://github.com/gorobchenko-k/history-block#readme",
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "html-webpack-plugin": "^5.5.3",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
 }
