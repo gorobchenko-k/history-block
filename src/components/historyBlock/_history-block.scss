@@ -79,4 +79,13 @@
     left: 50%;
     top: 50%;
   }
+
+  &__pagination {
+    margin-left: 80px;
+
+    @media (max-width: 768px) {
+      order: 1;
+      margin-left: 0;
+    }
+  }
 }
