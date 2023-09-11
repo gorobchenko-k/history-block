@@ -1,0 +1,17 @@
+{
+  "name": "history-block",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gorobchenko-k/history-block.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gorobchenko-k/history-block/issues"
+  },
+  "homepage": "https://github.com/gorobchenko-k/history-block#readme"
+}
