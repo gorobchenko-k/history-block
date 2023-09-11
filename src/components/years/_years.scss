@@ -1,0 +1,23 @@
+.years {
+  color: $accent-blue-color;
+  text-align: center;
+  font-size: 200px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 160px;
+  letter-spacing: -4px;
+  display: flex;
+  justify-content: center;
+  gap: 95px;
+
+  &__end-year {
+    color: $accent-pink-color;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 56px;
+    line-height: normal;
+    letter-spacing: -1.12px;
+    gap: 30px;
+  }
+}

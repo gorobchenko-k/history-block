@@ -64,4 +64,12 @@
       min-height: 16.8px;
     }
   }
+
+  &__years {
+    margin: 96px 0 137px 0;
+
+    @media (max-width: 768px) {
+      margin: 56px 0 57px 0;
+    }
+  }
 }
