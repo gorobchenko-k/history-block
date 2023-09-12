@@ -4,6 +4,7 @@ import { Years } from 'components/years/years';
 import { CircleNav } from 'components/circleNav/circleNav';
 import { Pagination } from 'components/pagination/pagination';
 import { Slider } from 'components/slider/slider';
+import { HistoryData } from 'types';
 
 export class HistoryBlock {
   private historyBlock = createElement('div', ['history-block']);
@@ -37,11 +38,10 @@ export class HistoryBlock {
   private setContent(): void {
     const currentInfo = historyInfo[this.currentItem];
     if (currentInfo) {
-      this.subTitle.textContent = currentInfo.title ?? '';
+      this.animateSetContent(currentInfo);
       this.years.setContent(currentInfo.startYear, currentInfo.endYear);
       this.circleNav.setCurrentItem(this.currentItem);
       this.pagination.setContent(this.currentItem);
-      this.slider.setContent(currentInfo.events);
     }
   }
 
@@ -69,6 +69,17 @@ export class HistoryBlock {
   private setCurrentItem(currentItemIndex: number): void {
     this.currentItem = currentItemIndex;
     this.setContent();
+  }
+
+  private animateSetContent(currentInfo: HistoryData): void {
+    this.slider.slider.classList.add('hidden');
+    this.subTitle.classList.add('hidden');
+    setTimeout(() => {
+      this.slider.setContent(currentInfo.events);
+      this.subTitle.textContent = currentInfo.title ?? '';
+      this.slider.slider.classList.remove('hidden');
+      this.subTitle.classList.remove('hidden');
+    }, 1000);
   }
 
   public render(scope: HTMLElement): void {

@@ -60,6 +60,15 @@
     font-style: normal;
     font-weight: 700;
     line-height: 120%; /* 16.8px */
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.5s;
+
+    &.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
     @media (max-width: 768px) {
       display: block;
       min-height: 16.8px;
@@ -100,6 +109,7 @@
       margin: 0 0 78px 0;
       padding-top: 20px;
       border-top: 1px solid $line-color;
+      min-height: 120px;
     }
   }
 }

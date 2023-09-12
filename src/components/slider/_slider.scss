@@ -1,4 +1,8 @@
 .slider {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.5s;
+
   .swiper-wrapper {
     padding: 0 60px;
     @media (max-width: 768px) {
@@ -47,5 +51,10 @@
     @media (max-width: 768px) {
       display: none;
     }
+  }
+
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
   }
 }
