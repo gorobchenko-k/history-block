@@ -1,0 +1,115 @@
+.history-block {
+  background-color: $bg-color;
+  position: relative;
+
+  &__container {
+    max-width: $content-width;
+    margin: 0 auto;
+    padding: 170px 0 104px 0;
+    border-right: 1px solid $line-color;
+    border-left: 1px solid $line-color;
+
+    @media (max-width: 768px) {
+      border: none;
+      padding: 59px 0 13px 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &::after,
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: 0;
+      background-color: $line-color;
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    &::after {
+      width: 1px;
+      height: 100%;
+      left: 50%;
+      top: 0;
+    }
+
+    &::before {
+      width: 100%;
+      height: 1px;
+      left: 0;
+      top: 43.33%;
+    }
+  }
+
+  &__title {
+    max-width: 353px;
+    padding-left: 78px;
+    border-left: 5px solid;
+    border-image: linear-gradient(to bottom, #3877ee, $accent-pink-color) 1 100%;
+
+    @media (max-width: 768px) {
+      border: none;
+      padding-left: 0;
+    }
+  }
+
+  &__sub-title {
+    display: none;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; /* 16.8px */
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.5s;
+
+    &.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    @media (max-width: 768px) {
+      display: block;
+      min-height: 16.8px;
+    }
+  }
+
+  &__years {
+    margin: 96px 0 137px 0;
+    position: relative;
+    z-index: 1;
+
+    @media (max-width: 768px) {
+      margin: 56px 0 57px 0;
+    }
+  }
+
+  &__circle-nav {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 43.33%;
+  }
+
+  &__pagination {
+    margin-left: 80px;
+
+    @media (max-width: 768px) {
+      order: 1;
+      margin-left: 0;
+    }
+  }
+
+  &__slider.swiper {
+    margin: 75px 20px 0 20px;
+    min-height: 200px;
+
+    @media (max-width: 768px) {
+      margin: 0 0 78px 0;
+      padding-top: 20px;
+      border-top: 1px solid $line-color;
+      min-height: 120px;
+    }
+  }
+}
